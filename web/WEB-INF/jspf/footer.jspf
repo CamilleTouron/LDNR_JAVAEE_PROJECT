@@ -1,0 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
+
+    <c:if test="${!empty sessionScope.user}">
+        <p>Vous êtes connecté avec le pseudo ${sessionScope.user.alias}.</p>
+    </c:if>
+        <a href="cgu" target="blank">Conditions générales d'utilisation</a>

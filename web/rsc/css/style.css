@@ -1,0 +1,284 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#main-menu {
+    display: inline-block;
+    list-style-type: none;
+}
+#main-menu a {
+   color: #43425D;
+}
+#main-menu a:link{
+    text-decoration: none;
+}
+#main-menu a:hover {
+    border-bottom: #43425D solid 1px;
+}
+#main-menu a:focus {
+    border-bottom: #43425D solid 1px;
+}
+#main-menu a:active {
+    border-bottom: #43425D solid 1px;
+}
+#main-menu li {
+    display: inline;
+    margin: 0.5rem
+}
+.wrapper {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Définir deux colonnes pour scinder la page en deux */
+    min-height: 100vh;
+    /* prendre toute la vue (le viewport) */
+}
+
+.wrapper-half h1 {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.wrapper-half.left {
+    background-image: url(../images/HealthyFood2.jpg);
+    background-repeat: none;
+    background-position: center;
+    background-size: contains;
+    min-width: 100%;
+}
+
+.wrapper-half.right {
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    padding: 0 1rem;
+}
+.wrapper-half.right fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+/* formulaire */
+
+.actions li {
+    list-style-type: none;
+}
+
+fieldset .field {
+    border-bottom: 2px solid #E9E9F0;
+    padding: 0.3rem;
+    margin: 1rem 0.8rem;
+}
+fieldset legend {
+    margin-left: 0.5rem;
+    font-size: 2rem;
+}
+fieldset p {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+fieldset h2 {
+    margin-left: 2rem;
+}
+fieldset form {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.field input,
+.field label,
+.field input:focus,
+.field label:focus {
+    border: 0;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    text-align: left;
+    outline: 0;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.actions input {
+    background-color: #43425D;
+    padding: 0.5rem 1.2rem;
+    margin: 1rem 0.5rem 1rem 0.5rem;
+    border: 0.16rem solid rgba(2, 14, 80, 0);
+    border-radius: 5px;
+    
+    font-weight: 300;
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-shadow: 0 0.04em 0.04em rgba(40, 5, 85, 0.65);
+    transition: all 0.2s;
+}
+
+.actions input:hover {
+    border-color: rgb(58, 11, 146);
+    background-color: white;
+    color: #43425D;
+    font-weight: 500;
+}
+
+.wrapper-half.right>fieldset {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0.5rem 0;
+}
+
+footer a:link{
+    text-decoration: none;
+    color: #43425D;
+}
+
+/*  */
+
+.infoEvent{
+    display : flex;
+    justify-content: space-around;
+}
+
+.info{
+    margin-left: 40px;
+    background-color: white;
+    border: aliceblue solid 5px;
+}
+.flash {
+    margin: 10px;
+    padding: 3px;
+}
+
+.ok {
+    animation-name :anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1000;
+    border-radius: 10px;
+    border: 1px solid #4F7CA7;
+    background-color: #4F7CA7;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.nok {
+    animation-name :anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1000;
+    border-radius: 10px;
+    border: 1px solid #ff6666;
+    background-color: #ff3333;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.warning{
+    border: 1px solid darksalmon;
+    background-color: darkkhaki;
+}
+@keyframes anim {
+  from {background-color: #4F7CA7;}
+  to {background-color: #43425D;}
+}
+
+
+.listeEvent {
+    overflow:scroll; 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+table{
+    border:#000000 1px solid;
+    background-color: #43425D;
+    table-layout: auto;
+    width: 100%;
+}
+tbody tr:nth-child(odd) {
+    background-color: #ccccff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+th,td{
+    width: 20%;
+    height: 20%;
+    color: #43425D;
+    font-weight: bolder;
+}
+th {
+    background-color: #43425D;
+    letter-spacing: 2px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+.thTaillePetite{
+    font-size: 12px;
+    width: 5%;
+}
+.thTailleGrande{
+    font-size: 12px;
+    width: 25%;
+}
+td {
+    letter-spacing: 1px;
+    text-align: center;
+
+}
+
+/* */
+
+
+
+@media screen and (max-width: 1280px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr
+    }
+
+    .wrapper-half.left {
+        background: url("../images/HealthyFood2.jpg") no-repeat center;
+        background-size: contains;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper-half.right fieldset {
+        padding: 0;
+    }
+    header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+}
