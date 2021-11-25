@@ -15,4 +15,6 @@ No framework.
 
 ## Team mates :
 Alan Aupetit : https://www.linkedin.com/in/aupetit-alan-7291a5207/.
-And 3 more anonymous.
+
+Farid Fetouhi : https://www.linkedin.com/in/ffetouhi/
+And 2 more anonymous.
