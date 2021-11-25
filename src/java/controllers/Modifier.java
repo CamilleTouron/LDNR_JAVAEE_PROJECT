@@ -70,9 +70,9 @@ public class Modifier extends HttpServlet {
                 // Puis on le remet sur la liste d'event
                 session.setAttribute("events", Event.eventToArray());
                 //Remove l'auberge de la session en cours
-                session.removeAttribute("auberge");
-                //AddAttribute auberge  la session en utilisant getaubergebyid en passant en parametre l'id du buffer auberge qu'on a créer
-                session.setAttribute("auberge", Auberge.getAubergeById(event));
+                Auberge a = Auberge.getAubergeById(event);
+                a.setInfos(event.getIdEvent());
+                session.setAttribute("auberge", a);
                 flash.add("ok", "Votre participation a bien été modifié.");
             } catch (Exception ex) {
                 flash.add("nok", "Votre participation n'a pas été modifié");

@@ -149,14 +149,14 @@ public class User {
         User user = null;
         Connection conn = MySqlConnection.getInstance();
         String req = "SELECT * FROM users WHERE `alias` = ?";
-
+        System.out.println(al);
         // Un outil de hashage
         PasswordAuthentication pa = new PasswordAuthentication();
         // Un booléen pour recevoir le résultat de la comparaison
         boolean isOk = false;
 
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setString(1, al);
             ResultSet rs = pstmt.executeQuery();
             if (rs.first()) {
@@ -170,6 +170,7 @@ public class User {
                     user.contact = rs.getString("contact");
                     user.idUser = rs.getInt("idUser");
                 } else {
+                    System.out.println("COUCOU CAMILLE ET ALAN");
                 }
             }
         } catch (SQLException ex) {
@@ -275,7 +276,7 @@ public class User {
         //Executer la prerequette
         //Penser au try catch si ca marche pas
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, this.idUser);
             pstmt.setInt(2, idEvent);
             ResultSet rs = pstmt.executeQuery();

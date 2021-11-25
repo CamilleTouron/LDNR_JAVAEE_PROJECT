@@ -67,11 +67,14 @@ public class Participer extends HttpServlet {
             try {
                 // On apelle la méthode addPart de l'auberge en cours
                 auberge.addParticipant(p, event.getIdEvent());
-                Event.updateNbParticipantTotal(event.getIdEvent());
                 session.removeAttribute("events");
+                Event.updateNbParticipantTotal(event.getIdEvent());
                 session.setAttribute("events", Event.eventToArray());
                 session.removeAttribute("auberge");
-                session.setAttribute("auberge", Auberge.getAubergeById(event));
+                // Appeler la méthode getAubergebyId     
+                Auberge a = Auberge.getAubergeById(event);
+                a.setInfos(event.getIdEvent());
+                session.setAttribute("auberge", a);
                 flash.add("ok", "Vous avez bien été ajouté.");
 
             } catch (Exception ex) {

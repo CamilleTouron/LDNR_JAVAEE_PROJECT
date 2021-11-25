@@ -55,8 +55,9 @@ public class Remove extends HttpServlet {
                 session.removeAttribute("events");
                 session.setAttribute("events", Event.eventToArray());
                 //Réinitialiser l'auberge en cours de session
-                session.removeAttribute("auberge");
-                session.setAttribute("auberge", Auberge.getAubergeById(event));
+                Auberge a = Auberge.getAubergeById(event);
+                a.setInfos(event.getIdEvent());
+                session.setAttribute("auberge", a);
                 flash.add("ok", "Participation supprimée.");
                 getServletContext().getRequestDispatcher("/WEB-INF/inscriptionAubergeUser.jsp").forward(request, response);
             } catch (IOException | ServletException ex) {

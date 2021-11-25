@@ -246,7 +246,7 @@ public class Auberge {
         String req = "SELECT * FROM (events e INNER JOIN participants p ON e.idEvent=p.idEvent)INNER JOIN users u ON u.idUser = p.idUser WHERE e.idEvent=?";
         try {
             //Faire une pré- requete :
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             //Remplacer les ?
             pstmt.setInt(1, e.getIdEvent());
             try {
@@ -312,7 +312,7 @@ public class Auberge {
         String req = "SELECT SUM(partEntree) FROM participants WHERE idEvent=? ";
         // Remplacer le ? par l'idEvent
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, idEvent);
             // Execute querry
             ResultSet rs = pstmt.executeQuery();
@@ -342,7 +342,7 @@ public class Auberge {
         String req = "SELECT SUM(partPlat) FROM participants WHERE idEvent=? ";
         // Remplacer le ? par l'idEvent
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, idEvent);
             // Execute querry
             ResultSet rs = pstmt.executeQuery();
@@ -372,7 +372,7 @@ public class Auberge {
         String req = "SELECT SUM(partDessert) FROM participants WHERE idEvent=? ";
         // Remplacer le ? par l'idEvent
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, idEvent);
             // Execute querry
             ResultSet rs = pstmt.executeQuery();
@@ -402,7 +402,7 @@ public class Auberge {
         String req = "SELECT SUM(partBoisson) FROM participants WHERE idEvent=? ";
         // Remplacer le ? par l'idEvent
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, idEvent);
             // Execute querry
             ResultSet rs = pstmt.executeQuery();
@@ -431,7 +431,7 @@ public class Auberge {
         String req = "SELECT SUM(convives) FROM participants WHERE idEvent=? ";
         // Remplacer le ? par l'idEvent
         try {
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pstmt.setInt(1, idEvent);
             // Execute querry
             ResultSet rs = pstmt.executeQuery();

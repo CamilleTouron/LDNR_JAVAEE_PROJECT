@@ -135,7 +135,7 @@ public class Event {
 
         try {
             //Faire une pré- requete :
-            PreparedStatement pstmt = conn.prepareStatement(req);
+            PreparedStatement pstmt = conn.prepareStatement(req,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             //Executer la prerequete.
             ResultSet rs = pstmt.executeQuery();
             rs = pstmt.getResultSet();
